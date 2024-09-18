@@ -78,9 +78,9 @@ int main() {
             int itemIndex = std::stoi(userInput) - 1;
 
             while (true) {
-                std::this_thread::sleep_for(std::chrono::minutes(1min));
+                std::this_thread::sleep_for(std::chrono::minutes(5min));
                 itemList[itemIndex].Time += 1;
-                std::cout << "1 minute passed\n Current time on "
+                std::cout << "5 minute passed\n Current time on "
                           << itemList[itemIndex].Name << " is: "
                           << itemList[itemIndex].Time << std::endl;
                 Item::UpdateFile(itemList, filename);
