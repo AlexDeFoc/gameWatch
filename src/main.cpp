@@ -75,12 +75,18 @@ int main() {
             std::cin >> userInput;
             std::cout << "\n";
 
-            while (true) {
-                std::this_thread::sleep_for(std::chrono::minutes(1min));
-                itemList[std::stoi(userInput) - 1].Time += 1;
-                std::cout << "1 minute passed\n Current time on " << itemList[std::stoi(userInput) - 1].Name << " is: " << itemList[std::stoi(userInput) - 1].Time;
-                Item::UpdateFile(itemList, filename);
-            }
+            int itemIndex = std::stoi(userInput) - 1;
+
+            std::thread([&itemList, itemIndex]() {
+                while (true) {
+                    std::this_thread::sleep_for(std::chrono::minutes(1min));
+                    itemList[itemIndex].Time += 1;
+                    std::cout << "1 minute passed\n Current time on "
+                        << itemList[itemIndex].Name << " is: "
+                        << itemList[itemIndex].Time << std::endl;
+                    Item::UpdateFile(itemList, filename);
+                }
+            }).detach();
         }
         else if (userInput == "0") {
             if (itemList.size() == 0) {
