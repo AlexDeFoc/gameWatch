@@ -76,9 +76,9 @@ int main() {
             std::cout << "\n";
 
             while (true) {
-                std::this_thread::sleep_for(std::chrono::seconds(1min));
+                std::this_thread::sleep_for(std::chrono::minutes(1min));
                 itemList[std::stoi(userInput) - 1].Time += 1;
-                std::cout << "10 sec passed\n";
+                std::cout << "1 minute passed\n Current time on " << itemList[std::stoi(userInput) - 1].Name << " is: " << itemList[std::stoi(userInput) - 1].Time;
                 Item::UpdateFile(itemList, filename);
             }
         }
