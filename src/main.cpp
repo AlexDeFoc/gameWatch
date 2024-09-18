@@ -79,7 +79,7 @@ int main() {
 
             while (true) {
                 std::this_thread::sleep_for(std::chrono::minutes(5min));
-                itemList[itemIndex].Time += 1;
+                itemList[itemIndex].Time += 5;
                 std::cout << "5 minute passed\n Current time on "
                           << itemList[itemIndex].Name << " is: "
                           << itemList[itemIndex].Time << std::endl;
