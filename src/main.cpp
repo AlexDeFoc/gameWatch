@@ -29,7 +29,7 @@ int main() {
         for (const std::string& opt : MainMenuOptions) {
             std::cout << opt << "\n";
         }
-        std::cout << "--> ";
+        std::cout << "Input option\n--> ";
         std::cin >> userInput;
         std::cout << "\n";
 
@@ -40,7 +40,7 @@ int main() {
             std::cout << std::endl;
         }
         else if (userInput == "a") {
-            std::cout << "--> ";
+            std::cout << "Input name\n--> ";
             std::cin.get();
             std::getline(std::cin, userInput);
             std::cout << "\n";
@@ -57,7 +57,7 @@ int main() {
                 continue;
             }
 
-            std::cout << "--> ";
+            std::cout << "Intput name\n--> ";
             std::cin >> userInput;
             std::cout << "\n";
 
@@ -71,22 +71,20 @@ int main() {
                 continue;
             }
 
-            std::cout << "--> ";
+            std::cout << "Input name\n--> ";
             std::cin >> userInput;
             std::cout << "\n";
 
             int itemIndex = std::stoi(userInput) - 1;
 
-            std::thread([&itemList, itemIndex]() {
-                while (true) {
-                    std::this_thread::sleep_for(std::chrono::minutes(1min));
-                    itemList[itemIndex].Time += 1;
-                    std::cout << "1 minute passed\n Current time on "
-                        << itemList[itemIndex].Name << " is: "
-                        << itemList[itemIndex].Time << std::endl;
-                    Item::UpdateFile(itemList, filename);
-                }
-            }).detach();
+            while (true) {
+                std::this_thread::sleep_for(std::chrono::minutes(1min));
+                itemList[itemIndex].Time += 1;
+                std::cout << "1 minute passed\n Current time on "
+                          << itemList[itemIndex].Name << " is: "
+                          << itemList[itemIndex].Time << std::endl;
+                Item::UpdateFile(itemList, filename);
+            }
         }
         else if (userInput == "0") {
             if (itemList.size() == 0) {
@@ -94,7 +92,7 @@ int main() {
                 continue;
             }
 
-            std::cout << "--> ";
+            std::cout << "Input name\n--> ";
             std::cin >> userInput;
             std::cout << "\n";
 
