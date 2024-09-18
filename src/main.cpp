@@ -57,7 +57,7 @@ int main() {
                 continue;
             }
 
-            std::cout << "Intput name\n--> ";
+            std::cout << "Intput index\n--> ";
             std::cin >> userInput;
             std::cout << "\n";
 
@@ -71,7 +71,7 @@ int main() {
                 continue;
             }
 
-            std::cout << "Input name\n--> ";
+            std::cout << "Input index\n--> ";
             std::cin >> userInput;
             std::cout << "\n";
 
@@ -92,7 +92,7 @@ int main() {
                 continue;
             }
 
-            std::cout << "Input name\n--> ";
+            std::cout << "Input index\n--> ";
             std::cin >> userInput;
             std::cout << "\n";
 
